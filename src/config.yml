@@ -1,0 +1,112 @@
+BlacklistedWorlds: []
+Animals:
+  #Enables custom animal features
+  #
+  #Features
+  #Animals have a hunger and hydration bar
+  #Animals will eat edible blocks and items and drink from cauldron and water sources
+  #Animals will automatically mate when well fed and hydrated
+  #Animals are grouped into various weight classes with Small: Medium: Large
+  #Animals that are heavier typically need more food than smaller animals
+  #Currently...
+  #Large: Cow, Horse
+  #Medium: Pig, Sheep
+  #Small: Chicken
+  Enabled: true
+  #Animals that have a specific weight size and have their hunger/thirst
+  #below these thresholds will eat/drink respectively
+  Thresholds:
+    #Animals that are killed while well kept will have their drops multiply in size
+    GoodDropMultiplier: 2
+    #Animals that are killed while starving and dehydrated will have their drops multiply in size
+    BadDropMultiplier: 0.5
+    Small:
+      HungerThreshold: 50
+      ThirstThreshold: 50
+    Medium:
+      HungerThreshold: 60
+      ThirstThreshold: 60
+    Large:
+      HungerThreshold: 80
+      ThirstThreshold: 80
+  Values:
+    #These are the hunger values that each block give
+    #A hunger value of 20 can be eaten 20 times
+    Blocks:
+      GRASS: 5
+      TALL_GRASS: 5
+      FERN: 5
+      LARGE_FERN: 10
+      SUGAR_CANE: 15
+      HAY_BLOCK: 20
+      MELON: 20
+      PUMPKIN: 20
+    #These are the hunger values that one item will give
+    #If the items are in a stack, the animal will eat one item at a time
+    Food:
+      BEETROOT: 30
+      POTATO: 40
+      APPLE: 30
+      WHEAT: 25
+      MELON_SLICE: 20
+      PUMPKIN_SEEDS: 15
+      BEETROOT_SEEDS: 10
+      MELON_SEEDS: 15
+      WHEAT_SEEDS: 10
+Falling:
+  CrippleOnHighFalls:
+    Enabled: true
+    FallHeight: 10
+    #A list of potion effects to induce
+    #Example
+    #[Effect Name]:
+    #   Strength: 4 (default)
+    #   Duration: 100 (default)
+    Effects:
+      Slow:
+        Strength: 4
+        Duration: 100
+      Confusion:
+        Strength: 4
+        Duration: 100
+  LandingDamagesBlocks:
+    #Landing on certain blocks from higher heights will crumble/shatter them
+    Enabled: true
+    PlaySound: true
+    Blocks:
+      #Start by making a new list with the material you want
+      #E:G Grass: or Stone:
+      #You can find material names for the latest version on
+      #https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+      #Legacy Material are not supported!
+      #You don't have to use capitals but spaces must be replaced with "_"
+      #Example...
+      #Block:
+        #CrumblesTo: DIRT
+        #The fall-distance required to "crumble" the block
+        #A height of 6 means the player has to fall 6 blocks high
+        #CrumbleHeight: 6 (default)
+        #The fall-distance required to break the block
+        #BreakingHeight: 12 (default)
+        #Making a block crumble/shatter causes other blocks within the radius to also crumble/shatter
+        #High Effect Radius can slowdown the server: stick to 5 maximum
+        #EffectRadius: 1 (default)
+        #You can make blocks that shatter increase/decrease the effect radius with a simple multiplication
+        #ShatterFactor: 1 (default)
+      Grass:
+        CrumbleTo: DIRT
+        BreakingHeight: 12
+        EffectRadius: 1
+      Dirt:
+        CrumblesTo: COARSE_DIRT
+        CrumbleHeight: 4
+        BreakingHeight: 12
+        EffectRadius: 1
+      COARSE_DIRT:
+        BreakingHeight: 12
+        EffectRadius: 1
+      Glass:
+        CrumbleTo: AIR
+        BreakingHeight: 6
+        EffectRadius: 3
+        ShatterFactor: 2

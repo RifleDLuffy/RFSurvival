@@ -1,0 +1,19 @@
+main: com.rifledluffy.survival.RFSurvival
+name: RFSurvival
+version: 0.1
+api-version: 1.13
+author: Rifle D. Luffy
+description: Enchancing Survival-Mode but Rifle's way
+softdepend:
+  - HolographicDisplays
+  - ProtocolLib
+  - WorldEdit
+  - WorldGuard
+commands:
+  rfsurvival:
+    usage: /rfsurvival
+    description: The main prefix for other commands. Type /rfsurvival help for more info
+    aliases: [rfs]
+permissions:
+  rfsurvival.admin:
+    default: op
